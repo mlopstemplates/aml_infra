@@ -1,1 +1,30 @@
 
+# Test Actions train a model on Azure Machine Learning
+name: aml-train-deploy-workflow 
+on:
+  push:
+    branches:
+      - master
+    # paths:
+    #   -'code/ *'
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Check Out Repository
+      id: checkout_repository
+      uses: actions/checkout@v2
+        
+    # Connect or Create the Azure Machine Learning Workspace
+    - name: deploy all resources
+      id: aml_configure
+      uses: mlopstemplates/templateDeploy@master
+      with:
+          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          armtemplate_file: "arm_deploy.json"
+          armtemplateparams_file: "arm_deploy.params.json"
+          pat_token: "testPAtToken"
+          github_repo: "mlopstemplates/templateDeploy"
+          subscription_id: "4847477c-3812-4667-ad10-174e0eab74d4"
+          resource_group: "Test1"
