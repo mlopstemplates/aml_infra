@@ -27,4 +27,4 @@ jobs:
           pat_token: "testPAtToken"
           github_repo: "vivishno/aml_infra"
           subscription_id: "4847477c-3812-4667-ad10-174e0eab74d4"
-          resource_group: "Test1"
+          resource_group: "TestFlow"
