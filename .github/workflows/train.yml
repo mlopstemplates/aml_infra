@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'code/*'
+
   repository_dispatch:
     types: [runFailed]
  
