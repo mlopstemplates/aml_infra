@@ -24,6 +24,6 @@ jobs:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           armtemplate_file: "arm_deploy.json"
           armtemplateparams_file: "arm_deploy.params.json"
-          resource_group: "ashkuma_functionAppRsGroup"
+          resource_group: "TestFlow2"
           pattoken: ${{secrets.PATTOKEN}}
           gitrepo: ${{github.repository}}      
