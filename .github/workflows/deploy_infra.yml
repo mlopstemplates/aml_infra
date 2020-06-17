@@ -7,6 +7,8 @@ on:
     paths:
       - '.cloud/.azure/arm_deploy.json'
       - '.cloud/.azure/arm_deploy.params.json'
+  repository_dispatch:
+   types: [testRun]
 jobs:
   train:
     runs-on: ubuntu-latest
