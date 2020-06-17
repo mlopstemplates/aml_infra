@@ -6,6 +6,8 @@ on:
       - master
     paths:
       - 'code/*'
+  repository_dispatch:
+  types: [runFailed]
 jobs:
   train:
     runs-on: ubuntu-latest
