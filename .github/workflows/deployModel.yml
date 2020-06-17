@@ -8,9 +8,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check variables
-        env:
-          PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload.data) }}
         # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check Out Repository
         id: checkout_repository
