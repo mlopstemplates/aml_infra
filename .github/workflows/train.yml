@@ -39,7 +39,7 @@ jobs:
      
     - name: Check variables
       run: |
-        echo "model_name is ${{ toJson(github.event.client_payload.data.experimentName) }}      
+        echo "model_name is ${{ toJson(github.event.client_payload.data.experimentName) }}"      
         
       # # Register model in Azure Machine Learning model registry
     - name: Register model
