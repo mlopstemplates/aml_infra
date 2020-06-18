@@ -36,14 +36,19 @@ jobs:
       uses: Azure/aml-run@v1
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+     
+    - name: Check variables
+      run: |
+        echo "model_name is ${{ toJson(github.event.client_payload.data.experimentName) }}      
+        
       # # Register model in Azure Machine Learning model registry
-      # - name: Register model
-      #   id: aml_registermodel
-      #   uses: Azure/aml-registermodel@v1
-      #   with:
-      #       azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-      #       run_id:  ${{ github.event.client_payload.data.runId }}
-      #       experiment_name: ${{ github.event.client_payload.data.experimentName }}
+    - name: Register model
+      id: aml_registermodel
+      uses: Azure/aml-registermodel@v1
+      with:
+         azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+         run_id:  ${{ github.event.client_payload.data.runId }}
+         experiment_name: ${{ github.event.client_payload.data.experimentName }}
 
 
     # - uses: actions/upload-artifact@v1
