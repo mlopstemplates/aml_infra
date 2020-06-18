@@ -2,7 +2,7 @@ name: aml-deploy
 
 on:
   repository_dispatch:
-    types: [RunCompleted]
+    types: [registerModel]
 
 jobs:
   deploy:
