@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'code/*'
+    
   repository_dispatch:
     types: [TrainFailed,DriftDetected]
 jobs:
@@ -37,6 +36,14 @@ jobs:
       uses: Azure/aml-run@v1
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+      # # Register model in Azure Machine Learning model registry
+      # - name: Register model
+      #   id: aml_registermodel
+      #   uses: Azure/aml-registermodel@v1
+      #   with:
+      #       azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+      #       run_id:  ${{ github.event.client_payload.data.runId }}
+      #       experiment_name: ${{ github.event.client_payload.data.experimentName }}
 
 
     # - uses: actions/upload-artifact@v1
