@@ -18,6 +18,12 @@ jobs:
       - name: Check Out Repository
         id: checkout_repository
         uses: actions/checkout@v2
+    
+      - name: Connect/Create Azure Machine Learning Workspace
+        id: aml_workspace
+        uses: Azure/aml-workspace@v1
+        with:
+            azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
       # # Register model in Azure Machine Learning model registry
       - name: Register model
