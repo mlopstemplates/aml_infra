@@ -19,10 +19,10 @@ jobs:
     # Connect or Create the Azure Machine Learning Workspace
     - name: deploy all resources
       id: aml_configure
-      uses: vivishno/aml_configure-1@master
+      uses: mlopstemplates/aml_configure@master
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           armtemplate_file: "arm_deploy.json"
           armtemplateparams_file: "arm_deploy.params.json"
-          resource_group: "PythonSdk"
-          pattoken: ${{secrets.PAT_TOKEN}}
+          resource_group: "testgroup"
+          pattoken: ${{secrets.PATTOKEN}}
